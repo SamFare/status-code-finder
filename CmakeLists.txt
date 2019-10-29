@@ -1,3 +1,5 @@
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 3.15.4)
 project (sc)
 add_executable(sc src/status-code.cpp)
+set_property(TARGET sc PROPERTY CXX_STANDARD 17)
+
