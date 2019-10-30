@@ -1,0 +1,10 @@
+{
+    "200": { 
+        "catagory": "Success",
+        "description": "OK"
+    },
+    "404": { 
+        "catagory": "Client Error",
+        "description": "Not Found"
+    }
+}

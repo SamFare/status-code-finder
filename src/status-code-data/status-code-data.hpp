@@ -19,4 +19,5 @@ class StatusCodeData {
     private: 
         int statusCode;
         std::string statusText;
+        StatusCodeData() {}
 };

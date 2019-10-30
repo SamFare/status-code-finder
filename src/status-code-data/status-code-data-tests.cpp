@@ -4,7 +4,7 @@
 
 using namespace testing;
 
-namespace {
+namespace StatusCodeDataTests {
     TEST(StatusCodeData, StatDataIsReturnedBasedOnCodeProvided) {
         StatusCodeData* dataWith404 = new StatusCodeData(404, "Not Found");
         StatusCodeData* dataWith200 = new StatusCodeData(200, "OK");
