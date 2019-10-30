@@ -4,6 +4,11 @@
 !/**/
 !*.*
 
+#cmake 
+cmake_*
+*.cmake
+_deps
+
 *.d
 
 # Compiled Object files

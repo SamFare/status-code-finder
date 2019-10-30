@@ -8,5 +8,4 @@ std::map<int, std::string> statusCodes = {
 
 int main(int argc, char* argv[]) { 
     std::cout << statusCodes.at(404) << std::endl;
-    
 }
