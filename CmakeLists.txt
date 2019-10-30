@@ -13,11 +13,11 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 
 project (sc)
-add_executable(sc src/status-code.cpp)
+add_executable(sc src/main.cpp)
 set_property(TARGET sc PROPERTY CXX_STANDARD 17)
 
 project(test)
-add_executable(test gtests.cpp)
+add_executable(test src/status-code-data-tests.cpp)
 target_link_libraries(test gtest gtest_main)
 gtest_discover_tests(test TEST_PREFIX new:)
 set_property(TARGET test PROPERTY CXX_STANDARD 17)
