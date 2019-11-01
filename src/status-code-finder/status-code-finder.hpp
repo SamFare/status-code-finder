@@ -1,6 +1,11 @@
+#pragma once
 #include <fstream>
 #include <nlohmann/json.hpp>
 #include <string>
+#include <iostream>
+#include <exception>
+
+#include "../status-code-not-found-exception/status-code-not-found-exception.hpp"
 
 class StatusCodeFinder {
     public:
@@ -10,11 +15,14 @@ class StatusCodeFinder {
         } 
 
         StatusCodeData* get(int statusCode) {
-            auto statusText = this->statusCodeInformation
+            try {
+                 auto statusText = this->statusCodeInformation
                                 .at(std::to_string(statusCode))
-                                .at("description");
-
-            return new StatusCodeData(statusCode, statusText);      
+                                .at("description");    
+                return new StatusCodeData(statusCode, statusText); 
+            } catch (std::exception e) {
+                throw StatusCodeNotFoundException();
+            }      
         }
 
     private: 
