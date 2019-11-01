@@ -4,6 +4,6 @@
 class StatusCodeNotFoundException : std::exception {
     public: 
         const char* getError() { 
-            return "Status Code Not Found!"; 
+            return "Status code not found!"; 
         }
 };
