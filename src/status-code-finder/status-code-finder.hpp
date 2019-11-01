@@ -6,6 +6,7 @@
 #include <exception>
 
 #include "../status-code-not-found-exception/status-code-not-found-exception.hpp"
+#include "../status-code-data/status-code-data.hpp"
 
 class StatusCodeFinder {
     public:
