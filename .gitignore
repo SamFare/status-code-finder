@@ -11,6 +11,9 @@ _deps
 
 *.d
 
+#vscode
+.vscode
+
 # Compiled Object files
 *.slo
 *.lo
