@@ -9,11 +9,9 @@ class StatusCodePrettyPrint {
     public: 
         StatusCodePrettyPrint() { }
         std::string print(StatusCodeData* statusCodeData) {
-            return "👂 Status Code: " 
-                    + COLOUR_SELECT_PREFIX
-                    + generateColourCode(statusCodeData)
-                    + std::to_string(statusCodeData->getStatus())
-                    + COLOUR_RESET;
+            return  getStatusCodeString(statusCodeData)
+                    + "\n"
+                    + generateStatusTextPrettyPrint(statusCodeData);
         }
 
     private: 
@@ -28,5 +26,18 @@ class StatusCodePrettyPrint {
         std::string generateColourCode(StatusCodeData* statusCodeData) {
              auto firstNumberOfCode = floor(statusCodeData->getStatus() / 100);  
              return this->statusCodeColours.at(firstNumberOfCode) + "m";
+        }
+
+        std::string getStatusCodeString(StatusCodeData* statusCodeData) { 
+            return "👂 Status Code: " 
+                    + COLOUR_SELECT_PREFIX
+                    + generateColourCode(statusCodeData)
+                    + std::to_string(statusCodeData->getStatus())
+                    + COLOUR_RESET;
+        }
+
+        std::string generateStatusTextPrettyPrint(StatusCodeData* statusCodeData) { 
+            return "💬 Status Text: "
+                    + statusCodeData->getStatusText();
         }
 };

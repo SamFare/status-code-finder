@@ -67,4 +67,37 @@ namespace StatusCodePrettyPrintTests {
         auto prettyPrintedStatus300 = statusCodePrettyPrinter->print(statusCodeData300);
         EXPECT_NE(prettyPrintedStatus300.find("\x1B[0;36m300\033[0m"), std::string::npos);
     }
+
+    TEST(StatusCodePrettyPrintTests, BreaksStatusTextOnToNewLine) { 
+        auto statusCodeData300 = new StatusCodeData(300, "Multiple Choices");
+        auto statusCodePrettyPrinter = new StatusCodePrettyPrint();
+
+        auto prettyPrintedStatus300 = statusCodePrettyPrinter->print(statusCodeData300);
+        EXPECT_NE(prettyPrintedStatus300.find("\n💬"), std::string::npos);
+    }
+
+    TEST(StatusCodePrettyPrintTests, StatusTextStartsWithSpeechBubble) { 
+        auto statusCodeData300 = new StatusCodeData(300, "Multiple Choices");
+        auto statusCodePrettyPrinter = new StatusCodePrettyPrint();
+
+        auto prettyPrintedStatus300 = statusCodePrettyPrinter->print(statusCodeData300);
+        EXPECT_NE(prettyPrintedStatus300.find("💬"), std::string::npos);
+    }
+
+    TEST(StatusCodePrettyPrintTests, DisplaysTheTextStatusText) { 
+        auto statusCodeData300 = new StatusCodeData(300, "Multiple Choices");
+        auto statusCodePrettyPrinter = new StatusCodePrettyPrint();
+
+        auto prettyPrintedStatus300 = statusCodePrettyPrinter->print(statusCodeData300);
+        EXPECT_NE(prettyPrintedStatus300.find("Status Text: "), std::string::npos);
+    }
+
+    TEST(StatusCodePrettyPrintTests, DisplatsTheStatusTextString) {
+        auto statusText = std::to_string(time(NULL)); 
+        auto statusCodeData300 = new StatusCodeData(300, statusText);
+        auto statusCodePrettyPrinter = new StatusCodePrettyPrint();
+
+        auto prettyPrintedStatus300 = statusCodePrettyPrinter->print(statusCodeData300);
+        EXPECT_NE(prettyPrintedStatus300.find(statusText), std::string::npos);
+    }
 }
