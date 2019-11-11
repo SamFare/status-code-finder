@@ -2,3 +2,4 @@
 #include "src/status-code-finder/status-code-finder-tests.cpp"
 #include "src/status-code-not-found-exception/status-code-not-found-exception-tests.cpp"
 #include "src/status-code-pretty-print/status-code-pretty-print-tests.cpp"
+#include "src/argument-validator/argument-validator-tests.cpp"
